@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,57 +11,81 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-    <img src="logo.png" alt="HoneyDrop Token Logo" class="logo" />
+    <img src="logo-rounded.png" alt="HoneyDrop Token Logo" class="logo reveal" />
     <h1 class="reveal">HoneyDrop Token</h1>
-    <p class="reveal">
-        HoneyDrop adalah token baru berbasis komunitas dengan tujuan mendukung peternak lebah lokal dan konservasi lingkungan.
-        Setiap pembelian token turut mendanai program pelestarian lebah dan pertanian berkelanjutan. Bergabunglah dengan gerakan kami
-        untuk masa depan yang lebih manis dan alami.
+    <p class="reveal desc">
+        HoneyDrop is a community-driven token supporting sustainable beekeeping and local farmers. Join us in creating a sweeter, greener future through every transaction.
     </p>
-    <button class="cta-button reveal">Beli Sekarang</button>
+    <button class="cta-button reveal">Buy Now</button>
     <div class="social-links reveal">
         <a href="https://twitter.com/honeydroptoken" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="https://t.me/honeydroptoken" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
     </div>
 
     <div class="chart-container reveal">
-        <h2>Live Harga Token</h2>
+        <h2>Live Token Price</h2>
         <canvas id="priceChart"></canvas>
     </div>
 
+    <div class="features reveal">
+        <img src="server.png" alt="Server" class="feature-img" />
+        <h2>Support for DeFi, NFTs, and Ethereum</h2>
+        <p>Simple API integration and real-time data for tokens, NFTs, and major crypto assets. Developer-friendly and trusted by leading platforms.</p>
+    </div>
+
+    <div class="sponsors reveal">
+        <h2>Trusted by Industry Leaders</h2>
+        <div class="sponsor-logos">
+            <img src="metamask.png" alt="Metamask" />
+            <img src="etherscan.png" alt="Etherscan" />
+            <img src="crypto.png" alt="Crypto.com" />
+            <img src="ledger.png" alt="Ledger" />
+            <img src="chainlink.png" alt="Chainlink" />
+            <img src="hextrust.png" alt="HexTrust" />
+            <img src="nansen.png" alt="Nansen" />
+            <img src="zapper.png" alt="Zapper" />
+            <img src="arkham.png" alt="Arkham" />
+            <img src="zerion.png" alt="Zerion" />
+        </div>
+    </div>
+
     <script>
-        // Dummy Chart, replace with API logic when contract address available
-        const ctx = document.getElementById('priceChart').getContext('2d');
-        const priceChart = new Chart(ctx, {
+        // Scroll animation
+        ScrollReveal().reveal('.reveal', {
+            delay: 100,
+            distance: '20px',
+            origin: 'bottom',
+            duration: 800,
+            easing: 'ease-in-out',
+            reset: false
+        });
+
+        // Dummy Chart
+        new Chart(document.getElementById("priceChart"), {
             type: 'line',
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                 datasets: [{
-                    label: 'Harga (USD)',
-                    data: [0.05, 0.07, 0.06, 0.08, 0.12, 0.10],
-                    backgroundColor: 'rgba(255, 204, 0, 0.2)',
-                    borderColor: '#ffcc00',
-                    borderWidth: 2,
-                    tension: 0.4
+                    label: 'Price (USD)',
+                    data: [0.045, 0.06, 0.055, 0.07, 0.115, 0.09],
+                    borderColor: 'gold',
+                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                    tension: 0.4,
+                    fill: true
                 }]
             },
             options: {
                 responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: false
+                plugins: {
+                    legend: {
+                        labels: { color: '#fff' }
                     }
+                },
+                scales: {
+                    x: { ticks: { color: '#fff' } },
+                    y: { ticks: { color: '#fff' } }
                 }
             }
-        });
-
-        // Scroll animation
-        ScrollReveal().reveal('.reveal', {
-            distance: '50px',
-            duration: 1000,
-            easing: 'ease-out',
-            origin: 'bottom',
-            interval: 200
         });
     </script>
 </body>
